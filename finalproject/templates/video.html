@@ -1,0 +1,50 @@
+{% extends "base_layout.html" %}
+{% block content %}
+
+<div class="container-fluid">
+
+    <h1 style="font-weight: bold;color: #f8f7f7;">Video</h1><br>
+    <h2 style="font-weight: bold;color:white;">English Music Video... </h2>
+
+    <div class="card">
+        <iframe src="https://www.youtube.com/embed/{{vdo[0]['songs']['English'][0]['yt_url']}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="card-body" style="background-color: black">
+            <div style="font-size: 30px;color:white;">
+                {{vdo[0]['songs']['English'][0]["title"]}}<br>
+                {{vdo[0]['songs']['English'][0]["artist"]}}<br>
+                {{vdo[0]['songs']['English'][0]["genre"]}}<br>
+                {{vdo[0]['songs']['English'][0]["album"]}}<br>
+                {{vdo[0]['songs']['English'][0]["year"]}}<br>
+                {{vdo[0]['songs']['English'][0]["country"]}}<br>
+            </div>
+        </div>
+    </div>
+
+    {% for vid in vdo[0]['songs']['English'] %}
+    {% if vid != vdo[0]['songs']['English'][0] %}
+    <div class="card">
+        <iframe src="https://www.youtube.com/embed/{{vdo['yt_url']}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="card-body">
+            <div style="font-size: 30px;color:white;">
+                {{vid["title"]}}<br>
+                {{vid["artist"]}}<br>
+                {{vid["genre"]}}<br>
+                {{vid["album"]}}<br>
+                {{vid["year"]}}<br>
+                {{vid["country"]}}<br>
+            </div>
+        </div>
+    </div>
+
+    {% endif %}
+    {% endfor %}
+</div>
+<div class="card" style="background-color: rgb(255, 187, 232);">
+    <iframe src="https://www.youtube.com/embed/1HAGuju_yKY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class="card-body">
+        <h5 class="card-title">Float</h5>
+       
+      </div>
+    </div>
+
+{% endblock %}
